@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Hinzz 🤎</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #5c3a21, #a67b5b);
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            padding: 60px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 38px;
+        }
+        p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        button {
+            margin-top: 25px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            background-color: #3e2723;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2e1b15;
+        }
+        .heart {
+            position: absolute;
+            color: #ffb6c1;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+        .music {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="music" class="music" src="https://www.youtube.com/embed/YQ6ShcAU_dQ"></iframe>
+    <div class="container">
+        <h1>For My Beautiful Hinzz 🤎</h1>
+        <p> From the day you came into my life, everything became beautiful. Your smile is my peace, your voice is my favorite song. I don't need the whole world… I just need you Hinzz 🤎 <br><br> This Valentine's Day, I just want to ask you one thing… </p>
+        <button onclick="startMusic()">Tap for Surprise 🎵</button><br>
+        <button onclick="proposal()">Will You Be Mine Forever? 💍</button>
+    </div>
+    <script>
+        function startMusic() {
+            document.getElementById("music").style.display = "block";
+        }
+        function proposal() {
+            document.body.innerHTML = `
+                <div class="container">
+                    <h1>I Love You Hinzz 🤎</h1>
+                    <p> You are my today and all of my tomorrows. Happy Valentine's Day, My Love 💌 </p>
+                </div>
+            `;
+            startHearts();
+        }
+        function startHearts() {
+            setInterval(() => {
+                let heart = document.createElement("div");
+                heart.className = "heart";
+                heart.innerHTML = "🤎";
+                heart.style.left = Math.random() * 100 + "vw";
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
