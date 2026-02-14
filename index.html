@@ -1,97 +1,168 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For My Hinzz 🤎</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: linear-gradient(to bottom, #5c3a21, #a67b5b);
-            color: white;
-            overflow: hidden;
-        }
-        .container {
-            padding: 60px 20px;
-            position: relative;
-            z-index: 2;
-        }
-        h1 {
-            font-size: 38px;
-        }
-        p {
-            font-size: 20px;
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
-        }
-        button {
-            margin-top: 25px;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 30px;
-            background-color: #3e2723;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #2e1b15;
-        }
-        .heart {
-            position: absolute;
-            color: #ffb6c1;
-            font-size: 20px;
-            animation: floatUp 6s linear infinite;
-        }
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
-        }
-        .music {
-            display: none;
-        }
-    </style>
+<title>For My Hinzz 🤎</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #5c3a21, #a67b5b);
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 { font-size: 36px; }
+
+p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: #3e2723;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover { background-color: #2e1b15; }
+
+img {
+    width: 40vw;
+    max-width: 150px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+video {
+    width: 80vw;
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Countdown */
+#countdown {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    font-size: 25px;
+    animation: floatUp 6s ease-in forwards;
+    text-shadow: 0 0 10px #fff;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+audio { display: none; }
+</style>
 </head>
+
 <body>
-    <iframe id="music" class="music" src="https://www.youtube.com/embed/YQ6ShcAU_dQ"></iframe>
-    <div class="container">
-        <h1>For My Beautiful Hinzz 🤎</h1>
-        <p> From the day you came into my life, everything became beautiful. Your smile is my peace, your voice is my favorite song. I don't need the whole world… I just need you Hinzz 🤎 <br><br> This Valentine's Day, I just want to ask you one thing… </p>
-        <button onclick="startMusic()">Tap for Surprise 🎵</button><br>
-        <button onclick="proposal()">Will You Be Mine Forever? 💍</button>
+
+<!-- Background Music -->
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+<div class="container">
+    <h1>For My Beautiful Hinzz 🤎</h1>
+
+    <!-- Photos -->
+    <div>
+      <img src="https://i.imgur.com/photo1.jpg" alt="Hinzz Photo1">
+      <img src="https://i.imgur.com/photo2.jpg" alt="Hinzz Photo2">
+      <img src="https://i.imgur.com/photo3.jpg" alt="Hinzz Photo3">
     </div>
-    <script>
-        function startMusic() {
-            document.getElementById("music").style.display = "block";
-        }
-        function proposal() {
-            document.body.innerHTML = `
-                <div class="container">
-                    <h1>I Love You Hinzz 🤎</h1>
-                    <p> You are my today and all of my tomorrows. Happy Valentine's Day, My Love 💌 </p>
-                </div>
-            `;
-            startHearts();
-        }
-        function startHearts() {
-            setInterval(() => {
-                let heart = document.createElement("div");
-                heart.className = "heart";
-                heart.innerHTML = "🤎";
-                heart.style.left = Math.random() * 100 + "vw";
-                document.body.appendChild(heart);
-                setTimeout(() => {
-                    heart.remove();
-                }, 6000);
-            }, 300);
-        }
-    </script>
+
+    <!-- Video -->
+    <video controls>
+      <source src="https://link-to-your-video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Love Message -->
+    <p>
+        From the day you came into my life, everything became beautiful.  
+        Your smile is my peace, your voice is my favorite song.  
+        I don’t need the whole world… I just need you Hinzz 🤎  
+    </p>
+
+    <!-- Countdown -->
+    <div id="countdown"></div>
+
+    <!-- Buttons -->
+    <button onclick="startMusic()">Tap for Surprise 🎵</button><br>
+    <button onclick="proposal()">Will You Be Mine Forever? 💍</button>
+</div>
+
+<script>
+// Music
+function startMusic() {
+    document.getElementById("music").play();
+}
+
+// Proposal
+function proposal() {
+    alert("Hinzz Said YES 🤎💍");
+    startHearts();
+}
+
+// Floating Hearts with Random Colors
+function startHearts() {
+    let colors = ["#FF69B4", "#FF1493", "#FF4500", "#FF8C00", "#FFD700", "#ADFF2F", "#00FA9A", "#00CED1", "#1E90FF", "#BA55D3"];
+    let count = 0;
+    let heartInterval = setInterval(() => {
+        if (count > 50) { clearInterval(heartInterval); return; } 
+        count++;
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.fontSize = (20 + Math.random()*20) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 200);
+}
+
+// Countdown to Feb 14, 2026
+var countDownDate = new Date(Date.UTC(2026, 1, 14, 0, 0, 0)).getTime();
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((distance / 1000 / 60) % 60);
+    var seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+    "Valentine’s Day Countdown: " +
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML =
+        "Happy Valentine’s Day My Hinzz 🤎";
+    }
+}, 1000);
+</script>
+
 </body>
 </html>
